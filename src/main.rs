@@ -1,3 +1,3 @@
 fn main() {
-    wordle_thingymabob::run("query");
+    wordle_thingymabob::run("elder");
 }
