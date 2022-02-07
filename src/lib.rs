@@ -13,8 +13,8 @@ pub fn run(answer: &str) {
         guess = guess.to_lowercase();
         cursor::move_up(1);
         cursor::move_to_column(0);
-        if guess.len() != 7 {
-            println!("Too many letters eh?");
+        if guess.trim().len() != 5 {
+            println!("Guess must be 5 characters! found {}",guess.trim().len());
             continue;
         }
         let guess_vec = assess_word(&guess, answer.to_string());
