@@ -1,9 +1,10 @@
 use simple_ansi::cursor;
 use std::{io, process};
 
-use crate::{assess::assess_word, letter::LetterCollection};
+use crate::{assess::assess_word, letter::LetterCollection, file_mod::get_guessable_words};
 
 pub fn run(answer: &str) {
+    let guessable_words = get_guessable_words().expect("Something has gone wrong");
     let mut guesses = 0;
     while guesses != 6 {
         let mut guess = String::new();
@@ -16,6 +17,9 @@ pub fn run(answer: &str) {
         if guess.trim().len() != 5 {
             println!("Guess must be 5 characters! found {}",guess.trim().len());
             continue;
+        }else if !guessable_words.contains(&guess.trim().to_string()){
+            println!("I do not recognize your language!"); 
+            continue;
         }
         let guess_vec = assess_word(&guess, answer.to_string());
         guess_vec.print();
@@ -26,9 +30,9 @@ pub fn run(answer: &str) {
             process::exit(0);
         }
     }
-    println!("you lost :(")
+    println!("you lost :(, the word was {}",answer);
 }
-
+pub mod file_mod;
 pub mod assess;
 pub mod letter;
 #[cfg(test)]
