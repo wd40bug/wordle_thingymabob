@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 ansi_term = "0.12.1"
 simple_ansi = "0.1.0"
+rand = "0.8.4"
