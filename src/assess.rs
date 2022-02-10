@@ -1,9 +1,9 @@
 use crate::letter::Letter;
 
-pub fn assess_letter((letter, i): (char, usize), answer: & mut String) -> Letter {
+pub fn assess_letter((letter, i): (char, usize), answer: &mut String) -> Letter {
     if answer.contains(letter) {
         if answer.chars().nth(i).unwrap() == letter {
-            answer.replace_range(i..i+1, " ");
+            answer.replace_range(i..i + 1, " ");
             return Letter::Right(letter);
         } else {
             *answer = answer.replacen(letter, " ", 1);

@@ -10,8 +10,8 @@ fn test_determine_word() {
     assert_eq!(correct, assess_word(guess, answer.to_string()));
     let guess = "russy";
     let answer = "wosty";
-    let correct = vec![Wrong('r'),Wrong('u'),Right('s'),Wrong('s'),Right('y')];
-    assert_eq!(correct,assess_word(guess, answer.to_string()));
+    let correct = vec![Wrong('r'), Wrong('u'), Right('s'), Wrong('s'), Right('y')];
+    assert_eq!(correct, assess_word(guess, answer.to_string()));
 }
 #[test]
 fn test_determine_letters() {
